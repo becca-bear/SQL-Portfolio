@@ -1,0 +1,80 @@
+CREATE TABLE bestsellers (id INTEGER PRIMARY KEY, name TEXT, jewelry_type TEXT, price INTEGER, wholesale TEXT, color TEXT);
+
+INSERT INTO bestsellers VALUES (1, "Cecilia", "Necklace", 109, "No", "Aqua");
+INSERT INTO bestsellers VALUES (2, "Valentina", "Necklace", 69, "Yes", "Aqua");
+INSERT INTO bestsellers VALUES (3, "Roberta", "Necklace", 95, "No", "Aqua");
+INSERT INTO bestsellers VALUES (4, "Stardust", "Earrings", 39, "Yes", "Gold");
+INSERT INTO bestsellers VALUES (5, "Full Moon", "Earrings", 39, "Yes", "Gold");
+INSERT INTO bestsellers VALUES (6, "Grace", "Earrings", 69, "Yes", "Aqua");
+INSERT INTO bestsellers VALUES (7, "June", "Necklace", 69,"Yes", "Aqua");
+INSERT INTO bestsellers VALUES (8, "Irene", "Necklace", 119, "No", "Aqua");
+INSERT INTO bestsellers VALUES (9, "Roberta", "Necklace", 95, "No", "Sage");
+INSERT INTO bestsellers VALUES (10, "Dainty Heart", "Earrings", 39, "Yes", "Gold");
+INSERT INTO bestsellers VALUES (11, "Hammered Climbers", "Earrings", 39, "Yes", "Gold");
+INSERT INTO bestsellers VALUES (12, "Kathy", "Earrings", 79, "No", "Aqua");
+INSERT INTO bestsellers VALUES (13, "Moon & Stars", "Earrings", 39, "Yes", "Gold");
+INSERT INTO bestsellers VALUES (14, "Elize", "Bracelet", 79, "Yes", "Aqua");
+INSERT INTO bestsellers VALUES (15, "Full Moon", "Earrings", 39, "Yes", "Gold");
+
+--display entire table ordered from most units sold to least
+SELECT *
+FROM bestsellers;
+
+--display only aqua jewelry
+SELECT *
+FROM bestsellers
+WHERE color = "Aqua";
+
+--display jewelry without sea glass
+SELECT *
+FROM bestsellers
+WHERE color = "Gold";
+
+--display entire table ordered by price
+SELECT *
+FROM bestsellers
+ORDER BY price; 
+
+--display only jewelry sold wholesale
+SELECT *
+FROM bestsellers
+WHERE wholesale = "Yes";
+
+--display jewelry not sold by wholesale
+SELECT *
+FROM bestsellers
+WHERE wholesale = "No";
+
+--display only necklaces
+SELECT *
+FROM bestsellers
+WHERE jewelry_type = "Necklace";
+
+--display only earrings
+SELECT *
+FROM bestsellers
+WHERE jewelry_type = "Earrings";
+
+--display only bracelets
+SELECT *
+FROM bestsellers
+WHERE jewelry_type = "Bracelet";
+
+--display average price
+SELECT AVG(price)
+FROM bestsellers;
+
+--display average price of necklaces
+SELECT AVG(price)
+FROM bestsellers
+WHERE jewelry_type = "Necklace";
+
+--display average price of earrings
+SELECT AVG(price)
+FROM bestsellers
+WHERE jewelry_type = "Earrings";
+
+--display average price of gold jewelry
+SELECT AVG(price)
+FROM bestsellers
+WHERE color = "Gold";
