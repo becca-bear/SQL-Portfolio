@@ -1,0 +1,43 @@
+--Create a book store database.--
+
+CREATE TABLE Store (ID INTEGER PRIMARY KEY, Title TEXT, Author TEXT, Genre TEXT, Format TEXT, Quantity INTEGER,Price INTEGER); 
+
+INSERT INTO Store VALUES (1, "The Perks of Being a Wallflower", "Stephen Chbosky", "Young Adult Fiction", "Hardcover", 7, 12.99);
+INSERT INTO Store VALUES (2, "Every Last Word", "Tamara Ireland Stone", "Fiction", "Paperback", 8, 9.71);
+INSERT INTO Store VALUES (3, "The Way I Used to Be", "Amber Smith", "Young Adult Fiction", "Paperback", 13, 10.34);
+INSERT INTO Store VALUES (4, "It Ends With Us", "Colleen Hoover", "Fiction, Romance", "Paperback", 15, 12.94);
+INSERT INTO Store VALUES (5, "The Hate U Give", "Angie Thomas", "Fiction", "Hardcover", 6, 15.49);
+INSERT INTO Store VALUES (6, "Verity", "Colleen Hoover", "Thriller, Fiction, Romance, Suspense", "Hardcover", 17, 14.67);
+INSERT INTO Store VALUES (7, "We Were Liars", "E. Lockhart", "Young Adult Fiction, Psychological Thriller", "Paperback", 11, 7.36); 
+INSERT INTO Store VALUES (8, "Lord of the Flies", "William Golding", "Fiction", "Paperback", 6, 7.64); 
+INSERT INTO Store VALUES (9, "It's Kind of a Funny Story", "Ned Vizzini", "Young Adult Fiction", "Paperback", 14, 10.81);
+INSERT INTO Store VALUES (10, "The Book Thief", "Markus Zusak", "Young Adult Fiction, Historical Fiction", "Hardcover", 9, 14.78); 
+INSERT INTO Store VALUES (11, "All the Bright Places", "Jennifer Niven", "Young Adult Fiction", "Paperback", 12, 9.75);
+INSERT INTO Store VALUES (12, "The Song of Achilles", "Madeline Miller", "Historical Fiction", "Hardcover", 6, 13.24);
+INSERT INTO Store VALUES (13, "Identical", "Ellen Hopkins", "Young Adult Fiction", "Paperback", 4, 8.57);
+INSERT INTO Store VALUES (14, "If We Were Villains", "M.L. Rio", "Thriller, Mystery, Suspense", "Paperback", 13, 10.98);
+INSERT INTO Store VALUES (15, "A Man Called Ove", "Fredrik Backman", "Fiction", "Paperback", 11, 10.98);
+
+--Display the database ordered by price.--
+Select * From Store
+ORDER BY Price ASC;
+
+--How many total books are in stock?--
+SELECT SUM(Quantity) "Book Inventory"
+FROM Store;
+
+--What is the average price for a paperback book?--
+SELECT AVG(ROUND(Price)) "Avg Book Price" 
+From Store
+WHERE Format="Paperback";
+
+--What are the 5 most expensive books and their prices?--
+SELECT Title, Price 
+FROM Store
+ORDER BY Price DESC
+LIMIT 5;
+
+--Which books are $10 or less and how many of each book are there?--
+SELECT Title, Quantity, Price
+FROM Store
+WHERE Price <=10;
